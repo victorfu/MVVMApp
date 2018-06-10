@@ -38,7 +38,6 @@ namespace MVVMApp.ViewModels
 
         public ImageGalleryDetailViewModel()
         {
-            // TODO WTS: Replace this with your actual data
             Source = SampleDataService.GetGallerySampleData();
         }
 
