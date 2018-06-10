@@ -122,15 +122,11 @@
     <Compile Include="Services\ThemeSelectorService.cs" />
     <Compile Include="ViewModels\ImageGalleryDetailViewModel.cs" />
     <Compile Include="ViewModels\ImageGalleryViewModel.cs" />
-    <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Views\ImageGalleryDetailPage.xaml.cs">
       <DependentUpon>ImageGalleryDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ImageGalleryPage.xaml.cs">
       <DependentUpon>ImageGalleryPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SettingsPage.xaml.cs">
-      <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -169,10 +165,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ImageGalleryPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\SettingsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
