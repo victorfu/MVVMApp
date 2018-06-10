@@ -110,7 +110,6 @@
     <Compile Include="Activation\ActivationHandler.cs" />
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
     <Compile Include="Helpers\Json.cs" />
-    <Compile Include="Helpers\NotifyTaskCompletion.cs" />
     <Compile Include="Helpers\Observable.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Helpers\SettingsStorageExtensions.cs" />
