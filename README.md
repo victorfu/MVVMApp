@@ -1,3 +1,3 @@
 # MVVMApp
 
-This repo demonstrates the usage of MVVM framework in UWP.
+This repository demonstrates the usage of MVVM (Model-View-ViewModel) framework in UWP.
