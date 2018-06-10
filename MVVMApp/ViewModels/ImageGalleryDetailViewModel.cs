@@ -38,7 +38,6 @@ namespace MVVMApp.ViewModels
 
         public ImageGalleryDetailViewModel()
         {
-            Source = SampleDataService.GetGallerySampleData();
         }
 
         public void SetImage(UIElement image) => _image = image;

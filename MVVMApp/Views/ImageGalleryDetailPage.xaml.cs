@@ -9,6 +9,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
+using Newtonsoft.Json;
 
 namespace MVVMApp.Views
 {
@@ -25,7 +26,9 @@ namespace MVVMApp.Views
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            await ViewModel.InitializeAsync(e.Parameter as string, e.NavigationMode);
+            var siid = e.Parameter as SampleImageWithId;
+            ViewModel.Source = siid.Collection;
+            await ViewModel.InitializeAsync(siid.Id, e.NavigationMode);
             showFlipView.Begin();
         }
 

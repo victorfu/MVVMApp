@@ -12,9 +12,16 @@ using MVVMApp.Views;
 using Windows.Storage;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
+using Newtonsoft.Json;
 
 namespace MVVMApp.ViewModels
 {
+    public class SampleImageWithId
+    {
+        public string Id;
+        public ObservableCollection<SampleImage> Collection;
+    }
+
     public class ImageGalleryViewModel : Observable
     {
         public const string ImageGallerySelectedIdKey = "ImageGallerySelectedIdKey";
@@ -35,7 +42,12 @@ namespace MVVMApp.ViewModels
 
         public ImageGalleryViewModel()
         {
-            Source = SampleDataService.GetGallerySampleData();
+            LoadData();
+        }
+
+        private async void LoadData()
+        {
+            Source = await SampleDataService.GetGallerySampleData();
         }
 
         public void Initialize(GridView imagesGridView)
@@ -64,7 +76,11 @@ namespace MVVMApp.ViewModels
         {
             var selected = args.ClickedItem as SampleImage;
             _imagesGridView.PrepareConnectedAnimation(ImageGalleryAnimationOpen, selected, "galleryImage");
-            NavigationService.Navigate<ImageGalleryDetailPage>(selected.ID);
+            NavigationService.Navigate<ImageGalleryDetailPage>(new SampleImageWithId()
+            {
+                Id = selected.ID,
+                Collection = Source
+            });
         }
     }
 }
