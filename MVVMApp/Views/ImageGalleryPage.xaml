@@ -26,7 +26,7 @@
         <GridView
             Grid.Row="1"
             x:Name="gridView"
-            ItemsSource="{x:Bind ViewModel.Source, Mode=OneWay}"
+            ItemsSource="{x:Bind ViewModel.Source.Result, Mode=OneWay}"
             IsItemClickEnabled="True"
             Padding="{StaticResource MediumLeftRightMargin}"
             SelectionMode="None">

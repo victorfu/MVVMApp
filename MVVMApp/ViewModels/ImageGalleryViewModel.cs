@@ -28,11 +28,11 @@ namespace MVVMApp.ViewModels
         public const string ImageGalleryAnimationOpen = "ImageGallery_AnimationOpen";
         public const string ImageGalleryAnimationClose = "ImageGallery_AnimationClose";
 
-        private ObservableCollection<SampleImage> _source;
+        private NotifyTaskCompletion<ObservableCollection<SampleImage>> _source;
         private ICommand _itemSelectedCommand;
         private GridView _imagesGridView;
 
-        public ObservableCollection<SampleImage> Source
+        public NotifyTaskCompletion<ObservableCollection<SampleImage>> Source
         {
             get => _source;
             set => Set(ref _source, value);
@@ -42,12 +42,13 @@ namespace MVVMApp.ViewModels
 
         public ImageGalleryViewModel()
         {
-            LoadData();
+            // LoadData();
+            Source = new NotifyTaskCompletion<ObservableCollection<SampleImage>>(SampleDataService.GetGallerySampleData());
         }
 
         private async void LoadData()
         {
-            Source = await SampleDataService.GetGallerySampleData();
+            // Source = await SampleDataService.GetGallerySampleData();
         }
 
         public void Initialize(GridView imagesGridView)
@@ -79,7 +80,7 @@ namespace MVVMApp.ViewModels
             NavigationService.Navigate<ImageGalleryDetailPage>(new SampleImageWithId()
             {
                 Id = selected.ID,
-                Collection = Source
+                Collection = Source.Result
             });
         }
     }
